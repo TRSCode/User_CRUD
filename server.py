@@ -20,7 +20,7 @@ def add_user():
 
 @app.route('/create')
 def create():
-    return render_template('/create.html')
+    return render_template('create.html')
 
 @app.route('/update/<int:id>')
 def edit(id):
@@ -34,8 +34,9 @@ def show_user(id):
 
 @app.route('/update', methods=['POST'])
 def update():
+    updated_user = request.form["id"]
     User.update(request.form)
-    return redirect('/')
+    return redirect(f'/show_user/{updated_user}')
 
 @app.route('/remove/<int:id>')
 def remove(id):
