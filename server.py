@@ -15,8 +15,8 @@ def add_user():
         "last_name" : request.form["last_name"],
         "email" : request.form["email"]
     }
-    User.save(data)
-    return redirect('/')
+    user_id = User.save(data)
+    return redirect(f'/show_user/{user_id}')
 
 @app.route('/create')
 def create():
