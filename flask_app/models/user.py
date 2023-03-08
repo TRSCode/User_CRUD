@@ -1,4 +1,4 @@
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 class User:
     DB = "users_schema"
