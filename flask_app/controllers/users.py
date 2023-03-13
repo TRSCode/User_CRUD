@@ -13,6 +13,8 @@ def index():
 
 @app.route('/add_user', methods=["POST"])
 def add_user():
+    if not User.validate_user(request.form):
+        return redirect('/create')
     data = {
         "first_name": request.form["first_name"],
         "last_name" : request.form["last_name"],
